@@ -87,7 +87,6 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     // ha a hátékos 1-est dobott:
   } else {
-    document.querySelector('#score-' + activePlayer).textContent = 0;
     nextPlayer();
   }
 
