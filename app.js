@@ -79,14 +79,15 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     //homework1
     document.querySelector('#current-' + activePlayer).textContent = roundScore;
-    if (currentDices[activePlayer] === 6) {
-      if (previousDices[activePlayer] === 6) {
-        nextPlayer();
-      }
+    if (currentDices[activePlayer] === 6 && previousDices[activePlayer] === 6) {
+      document.querySelector('#score-' + activePlayer).textContent = 0;
+      nextPlayer();
+
     }
 
     // ha a hátékos 1-est dobott:
   } else {
+    document.querySelector('#score-' + activePlayer).textContent = 0;
     nextPlayer();
   }
 
