@@ -2,6 +2,7 @@
 
 let scores, roundScore, activePlayer;
 let previousDices, currentDices; //homework1
+let finalScore; //homework2
 function init() {
   // a két játékos pontszáma, egy 2 elemű tömbben lesz tárolva...
   // az első elem az első játékos pontszáma, a második a második játékos
@@ -17,6 +18,13 @@ function init() {
   //homework1
   previousDices = [0, 0];
   currentDices = [0, 0];
+  //homework2
+  if (document.querySelector('.final-score').value === '') {
+    finalScore = 100;
+  } else {
+    finalScore = document.querySelector('.final-score').value;
+  }
+  //console.log(finalScore);
 
   // beállítjuk a kezdő értékeket a UI-on is
   document.querySelector('#score-0').textContent = 0;
@@ -122,7 +130,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
   document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
   // ellenőrizzük hogy van e nyertes:
-  if (scores[activePlayer] >= 20) {
+  if (scores[activePlayer] >= finalScore) {
     // játék vége
     document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
     document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
