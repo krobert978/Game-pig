@@ -18,11 +18,16 @@ function init() {
   //homework1
   previousDices = [0, 0];
   currentDices = [0, 0];
+
   //homework2
-  if (document.querySelector('.final-score').value === '') {
+  finalScore = 100;
+  let a = parseInt(document.querySelector('.final-score').value);
+
+  if (isNaN(a) === true) {
     finalScore = 100;
   } else {
-    finalScore = document.querySelector('.final-score').value;
+    finalScore = a;
+
   }
   //console.log(finalScore);
 
@@ -52,6 +57,8 @@ function init() {
 
 init();
 document.querySelector('.btn-new').addEventListener('click', init);
+
+
 
 // ha a roll dice gombra kattint a user...
 document.querySelector('.btn-roll').addEventListener('click', function () {
@@ -89,6 +96,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     document.querySelector('#current-' + activePlayer).textContent = roundScore;
     if (currentDices[activePlayer] === 6 && previousDices[activePlayer] === 6) {
       document.querySelector('#score-' + activePlayer).textContent = 0;
+      scores[activePlayer] = 0;
       nextPlayer();
     }
 
