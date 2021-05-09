@@ -81,6 +81,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     document.querySelector('#current-' + activePlayer).textContent = roundScore;
     if (currentDices[activePlayer] === 6 && previousDices[activePlayer] === 6) {
       document.querySelector('#score-' + activePlayer).textContent = 0;
+      scores[activePlayer] = 0;
       nextPlayer();
 
     }
